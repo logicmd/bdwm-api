@@ -1,0 +1,10 @@
+.project
+.settings
+.classpath
+target
+*.log
+# IDEA ignorefiles
+.idea
+*.iml
+#Debug
+*.log.*
