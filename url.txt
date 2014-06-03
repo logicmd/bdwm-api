@@ -1,1 +1,1 @@
-http://127.0.0.1:8080/post?board=Love&file=M.123.A&num=123
+http://127.0.0.1:8080/post?board=SecretGarden&file=M.1401783476.A&num=10821
