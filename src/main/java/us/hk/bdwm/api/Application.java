@@ -14,7 +14,7 @@ public class Application {
     public static void main(String[] args) {
         final ApplicationContext context = new ClassPathXmlApplicationContext(
             new String[] {
-                "resources/applicationContext.xml"
+                "applicationContext.xml"
             });
         ((AbstractApplicationContext) context).registerShutdownHook();
         SpringApplication.run(Application.class, args);
