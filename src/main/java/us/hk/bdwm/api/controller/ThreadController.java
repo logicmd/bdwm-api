@@ -36,14 +36,15 @@ public class ThreadController {
 
         String url = threadUrlPrefix + "board=" + board + "&threadid=" + threadid + "&num=" + num;
 
-        HttpClientFactory httpClientFactory = HttpClientFactory.getHttpClient();
+        HttpClientFactory httpClientFactory = HttpClientFactory.get();
         String body = httpClientFactory.download(url);
 
         ArrayList<String> params = Parser.getPostUrls(body);
 
         for(String param : params) {
             String postUrl = postUrlPrefix + param;
-            Post post = new Post(Parser.getPostContent(postUrl));
+            String postBody = httpClientFactory.download(postUrl);
+            Post post = new Post(Parser.getPostContent(postBody));
             thread.appendPost(post);
         }
 

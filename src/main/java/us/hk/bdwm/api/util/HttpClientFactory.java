@@ -15,7 +15,7 @@ public class HttpClientFactory {
         client.getHostConfiguration().setProxy("proxy.logicmd.net", 8484);
     }
 
-    public static HttpClientFactory getHttpClient() {
+    public static HttpClientFactory get() {
         if(null == instance) {
             instance = new HttpClientFactory();
         }
@@ -27,6 +27,7 @@ public class HttpClientFactory {
         String body = null;
 
         HttpMethod method = new GetMethod(url);
+
         try {
             client.executeMethod(method);
 
@@ -35,8 +36,8 @@ public class HttpClientFactory {
             }
         } catch (IOException e) {
             e.printStackTrace();
-
         }
+
         return body;
     }
 }

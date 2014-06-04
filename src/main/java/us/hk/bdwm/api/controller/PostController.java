@@ -32,7 +32,7 @@ public class PostController {
 
         String url = postUrlPrefix + "board=" + board + "&file=" + file + "&num=" + num + "&attach=" + attach + "&dig=" + dig;
 
-        HttpClientFactory httpClientFactory = HttpClientFactory.getHttpClient();
+        HttpClientFactory httpClientFactory = HttpClientFactory.get();
         String body = httpClientFactory.download(url);
 
         return new Post(Parser.getPostContent(body));
