@@ -8,10 +8,14 @@ public class ThreadMeta {
 
     private String url;
 
-    public ThreadMeta(String board, String title, String url) {
+    private String apiUrl;
+
+    public ThreadMeta(String board, String title, String url, String apiUrl) {
         this.board = board;
         this.title = title;
         this.url = url;
+        this.apiUrl = apiUrl;
+
     }
 
     public String getBoard() {
@@ -24,5 +28,9 @@ public class ThreadMeta {
 
     public String getUrl() {
         return url;
+    }
+
+    public String getApiUrl() {
+        return  apiUrl;
     }
 }
