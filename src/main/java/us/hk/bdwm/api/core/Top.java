@@ -10,7 +10,7 @@ public class Top {
         threadMetas = new ArrayList<ThreadMeta>();
     }
 
-    public void AppendThreadMeta(ThreadMeta threadMeta) {
+    public void append(ThreadMeta threadMeta) {
         threadMetas.add(threadMeta);
     }
 

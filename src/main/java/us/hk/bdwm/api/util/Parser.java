@@ -38,20 +38,21 @@ public class Parser {
                 "<td class='hidden'>1</td>.*" +
                 "<td><a href='bbsdoc.php?.+'>.+</a></td>.*" +
                 "<td><a href='bbstop.php?.+'>(.*)</a></td>.*" +
+                "<td><a href='bbsqry.php?.+'>.*</a></td>.*" +
                 "<td><a href='(bbstcon.php?.+)'>(.*)</a></td>.*" +
-                "</tr>"
+                "</tr>",
+                Pattern.DOTALL
         );
         Matcher m = p.matcher(body);
-        ArrayList<String> urls = new ArrayList<String>();
 
         while (m.find() && limit-- > 0) {
             String board = m.group(1);
             String title = m.group(2);
             String url = "http://www.bdmw.net/bbs/" + m.group(3);
             ThreadMeta threadMeta = new ThreadMeta(board, title, url);
-            top.AppendThreadMeta(threadMeta);
+            top.append(threadMeta);
         }
-        return urls;
+        return top;
     }
 
 

@@ -44,8 +44,8 @@ public class ThreadController {
         for(String param : params) {
             String postUrl = postUrlPrefix + param;
             String postBody = httpClientFactory.download(postUrl);
-            Post post = new Post(Parser.getPostContent(postBody));
-            thread.appendPost(post);
+            Post post = Parser.getPost(postBody);
+            thread.append(post);
         }
 
         return thread;
