@@ -10,7 +10,7 @@ public class Thread {
         posts = new ArrayList<Post>();
     }
 
-    public void appendPost(Post post) {
+    public void append(Post post) {
         posts.add(post);
     }
 

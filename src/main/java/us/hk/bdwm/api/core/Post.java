@@ -4,8 +4,8 @@ public class Post {
 
     private String content;
 
-    public Post(String rawContent) {
-        content = rawContent;
+    public Post(String content) {
+        this.content = content;
     }
 
     public String getContent() {

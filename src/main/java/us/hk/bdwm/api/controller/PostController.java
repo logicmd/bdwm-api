@@ -35,6 +35,6 @@ public class PostController {
         HttpClientFactory httpClientFactory = HttpClientFactory.get();
         String body = httpClientFactory.download(url);
 
-        return new Post(Parser.getPostContent(body));
+        return Parser.getPost(body);
     }
 }
