@@ -35,20 +35,18 @@ public class Parser {
         Top top = new Top();
 
         Pattern p = Pattern.compile(
-                "<td class='hidden'>1</td>.*" +
-                "<td><a href='bbsdoc.php?.+'>.+</a></td>.*" +
-                "<td><a href='bbstop.php?.+'>(.*)</a></td>.*" +
-                "<td><a href='bbsqry.php?.+'>.*</a></td>.*" +
-                "<td><a href='(bbstcon.php?.+)'>(.*)</a></td>.*" +
-                "</tr>",
+                "<td><a href='bbsdoc.php?.+'>.+</a></td>.+" +
+                "<td><a href='bbstop.php?.+'>(.+)</a></td>.+" +
+                "<td><a href='bbsqry.php?.+'>.+</a></td>.+" +
+                "<td><a href='(bbstcon.php?.+)'>(.+)</a></td>",
                 Pattern.DOTALL
         );
         Matcher m = p.matcher(body);
 
         while (m.find() && limit-- > 0) {
             String board = m.group(1);
-            String title = m.group(2);
-            String url = "http://www.bdmw.net/bbs/" + m.group(3);
+            String title = m.group(3);
+            String url = "http://www.bdwm.net/bbs/" + m.group(2);
             ThreadMeta threadMeta = new ThreadMeta(board, title, url);
             top.append(threadMeta);
         }
