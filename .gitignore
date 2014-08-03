@@ -8,3 +8,5 @@ target
 *.iml
 #Debug
 *.log.*
+logs/
+*nohup*
