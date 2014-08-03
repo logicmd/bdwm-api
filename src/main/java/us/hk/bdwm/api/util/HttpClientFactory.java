@@ -15,7 +15,6 @@ public class HttpClientFactory {
 
     private HttpClientFactory() {
         client = new HttpClient();
-        client.getHostConfiguration().setProxy("proxy.logicmd.net", 8484);
     }
 
     public static HttpClientFactory get() {

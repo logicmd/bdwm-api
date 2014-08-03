@@ -3,7 +3,7 @@
 SERVICE=bdwm-api
 INSTALL_DIR=~/install-bdwm-api
 
-cd ../../
+cd ../
 
 if [ $# -ne 1 ];then
     echo "install.sh <profile>"
@@ -13,13 +13,13 @@ fi
 
 PROFILE=$1
 
-mvn clean package -pl ${SERVICE} -am -Dmaven.test.skip -Denv=${PROFILE}
+mvn clean package -am -Dmaven.test.skip -Denv=${PROFILE}
 
 mkdir -p $INSTALL_DIR
 mkdir -p $INSTALL_DIR/logs
 mkdir -p $INSTALL_DIR/bin
 
-#cp ${SERVICE}/target/$SERVICE.jar $INSTALL_DIR/$SERVICE.jar
-#cp ${SERVICE}/bin/*.sh $INSTALL_DIR/bin
+#cp target/$SERVICE.jar $INSTALL_DIR/$SERVICE.jar
+#cp bin/control.sh $INSTALL_DIR/bin
 
 
