@@ -14,7 +14,23 @@ http://www.springframework.org/schema/tx http://www.springframework.org/schema/t
     <context:component-scan base-package="us.hk.bdwm.api" />
 
     <bean id="postUrlPrefix" class="java.lang.String">
-        <constructor-arg type="java.lang.String" value="http://www.bdwm.net/bbs/bbscon.php"/>
+        <constructor-arg value="http://www.bdwm.net/bbs/bbscon.php?"/>
+    </bean>
+
+    <bean id="threadUrlPrefix" class="java.lang.String">
+        <constructor-arg value="http://www.bdwm.net/bbs/bbstcon.php?"/>
+    </bean>
+
+    <bean id="topUrl" class="java.lang.String">
+        <constructor-arg value="http://www.bdwm.net/bbs/ListPostTops.php?halfLife=7"/>
+    </bean>
+
+    <bean id="jettyRequestLogPath" class="java.lang.String">
+        <constructor-arg value="logs/" />
+    </bean>
+
+    <bean id="jettyHttpPort" class="java.lang.Integer">
+        <constructor-arg value="8080" />
     </bean>
 
 </beans>

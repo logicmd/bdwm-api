@@ -31,6 +31,6 @@ public class ThreadMeta {
     }
 
     public String getApiUrl() {
-        return  apiUrl;
+        return apiUrl;
     }
 }

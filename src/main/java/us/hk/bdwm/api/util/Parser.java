@@ -36,9 +36,9 @@ public class Parser {
 
         Pattern p = Pattern.compile(
                 "<td><a href='bbsdoc.php?.*?'>.*?</a></td>.*?" +
-                "<td><a href='bbstop.php?.*?'>(.*?)</a></td>.*?" +
-                "<td><a href='bbsqry.php?.*?'>.*?</a></td>.*?" +
-                "<td><a href='(bbstcon.php?.*?)'>(.*?)</a></td>",
+                        "<td><a href='bbstop.php?.*?'>(.*?)</a></td>.*?" +
+                        "<td><a href='bbsqry.php?.*?'>.*?</a></td>.*?" +
+                        "<td><a href='(bbstcon.php?.*?)'>(.*?)</a></td>",
                 Pattern.DOTALL
         );
         Matcher m = p.matcher(body);

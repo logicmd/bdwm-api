@@ -8,3 +8,4 @@ target
 *.iml
 #Debug
 *.log.*
+logs/

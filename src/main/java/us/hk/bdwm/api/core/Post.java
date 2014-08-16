@@ -1,6 +1,10 @@
 package us.hk.bdwm.api.core;
 
+import com.google.gson.Gson;
+
 public class Post {
+
+    private static Gson gson = new Gson();
 
     private String content;
 
@@ -12,4 +16,7 @@ public class Post {
         return content;
     }
 
+    public void toJson(Appendable writer) {
+        gson.toJson(this, writer);
+    }
 }

@@ -15,11 +15,10 @@ public class HttpClientFactory {
 
     private HttpClientFactory() {
         client = new HttpClient();
-        client.getHostConfiguration().setProxy("proxy.logicmd.net", 8484);
     }
 
     public static HttpClientFactory get() {
-        if(null == instance) {
+        if (null == instance) {
             instance = new HttpClientFactory();
         }
 
@@ -39,7 +38,7 @@ public class HttpClientFactory {
                 StringBuffer temp = new StringBuffer();
                 InputStream in = method.getResponseBodyAsStream();
                 BufferedReader buffer = new BufferedReader(new InputStreamReader(in, "gb18030"));
-                for(String tempstr = ""; (tempstr = buffer.readLine()) != null;)
+                for (String tempstr = ""; (tempstr = buffer.readLine()) != null; )
                     temp = temp.append(tempstr);
 
                 buffer.close();
