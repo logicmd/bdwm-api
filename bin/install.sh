@@ -19,7 +19,7 @@ mkdir -p $INSTALL_DIR
 mkdir -p $INSTALL_DIR/logs
 mkdir -p $INSTALL_DIR/bin
 
-#cp target/$SERVICE.jar $INSTALL_DIR/$SERVICE.jar
-#cp bin/control.sh $INSTALL_DIR/bin
+cp target/$SERVICE.jar $INSTALL_DIR/$SERVICE.jar
+cp bin/*.sh $INSTALL_DIR/bin
 
 

@@ -18,7 +18,7 @@ if [ $# -ne 1 ]; then
 fi
 
 COMMAND=$1
-MAINCLASS="us.hk.bdwm.api.Application"
+MAINCLASS="us.hk.bdwm.api.WebServer"
 
 stop() {
     PIDS=`ps x | grep ${MAINCLASS} | grep -v grep | grep java | awk '{print $1}'`
@@ -34,12 +34,11 @@ start() {
     CLASSPATH=${CLASSPATH}:${SERVICE}.jar
     export CLASSPATH
     mkdir ./logs >/dev/null 2>&1
-    #nohup java ${JAVA_OPTS} ${MAINCLASS} >${LOG_DIR}/${OUT_FILE} 2>${LOG_DIR}/${OUT_FILE} &
-    nohup mvn exec:java -Dexec.mainClass=${MAINCLASS} -Denv=online  >${LOG_DIR}/${OUT_FILE} 2>${LOG_DIR}/${OUT_FILE} &
+    nohup java ${JAVA_OPTS} ${MAINCLASS} >${LOG_DIR}/${OUT_FILE} 2>${LOG_DIR}/${OUT_FILE} &
     sleep 3
     echo
     # show some logs by tail
-    tail -n 10 ${LOG_DIR}/${LOG_FILE}
+    tail -n 10 ${LOG_DIR}/${OUT_FILE}
 }
 
 echo ${COMMAND}
