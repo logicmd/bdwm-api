@@ -3,7 +3,7 @@ SERVICE=bdwm-api
 LOG_DIR=logs
 LOG_FILE=bdwm-api.log
 OUT_FILE=bdwm-api.out
-JAVA_OPTS="-Xms1024m -Xmx10240m -XX:+UseParallelGC -XX:ParallelGCThreads=4 -XX:+UseParallelOldGC -XX:YoungGenerationSizeIncrement=20 -XX:TenuredGenerationSizeIncrement=20"
+JAVA_OPTS="-Xms1024m -Xmx10240m -XX:+UseParallelGC -XX:ParallelGCThreads=4 -XX:+UseParallelOldGC -XX:YoungGenerationSizeIncrement=20 -XX:TenuredGenerationSizeIncrement=20 -Dbdwm.log.dir=${LOG_DIR} -Dbdwm.log.file=${LOG_FILE} -Dbdwm.root.logger=INFO,DRFA"
 
 usage() {
     echo "Usage: bash $0 command"
