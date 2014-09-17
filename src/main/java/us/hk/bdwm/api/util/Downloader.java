@@ -9,24 +9,14 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
-public class HttpClientFactory {
-    private static HttpClientFactory instance = null;
+public class Downloader {
     private static HttpClient client;
 
-    private HttpClientFactory() {
-        client = new HttpClient();
-    }
-
-    public static HttpClientFactory get() {
-        if (null == instance) {
-            instance = new HttpClientFactory();
-        }
-
-        return instance;
-    }
-
-    public String download(String url) {
+    public static String get(String url) {
         String body = null;
+        if (null == client) {
+            client = new HttpClient();
+        }
 
         HttpMethod method = new GetMethod(url);
         method.setRequestHeader("Content-Type", "text/html;encoding=gb18030");
@@ -38,8 +28,8 @@ public class HttpClientFactory {
                 StringBuffer temp = new StringBuffer();
                 InputStream in = method.getResponseBodyAsStream();
                 BufferedReader buffer = new BufferedReader(new InputStreamReader(in, "gb18030"));
-                for (String tempstr = ""; (tempstr = buffer.readLine()) != null; )
-                    temp = temp.append(tempstr);
+                for (String tempStr; (tempStr = buffer.readLine()) != null; )
+                    temp = temp.append(tempStr);
 
                 buffer.close();
                 in.close();

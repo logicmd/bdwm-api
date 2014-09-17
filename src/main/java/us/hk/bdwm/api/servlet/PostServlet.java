@@ -2,7 +2,7 @@ package us.hk.bdwm.api.servlet;
 
 import org.springframework.stereotype.Component;
 import us.hk.bdwm.api.core.Post;
-import us.hk.bdwm.api.util.HttpClientFactory;
+import us.hk.bdwm.api.util.Downloader;
 import us.hk.bdwm.api.util.Parser;
 
 import javax.annotation.Resource;
@@ -33,8 +33,7 @@ public class PostServlet extends HttpServlet {
 
         String url = postUrlPrefix + "board=" + board + "&file=" + file + "&num=" + num + "&attach=" + attach + "&dig=" + dig;
 
-        HttpClientFactory httpClientFactory = HttpClientFactory.get();
-        String body = httpClientFactory.download(url);
+        String body = Downloader.get(url);
 
 
         Post post = Parser.getPost(body);

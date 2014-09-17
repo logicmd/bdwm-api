@@ -12,13 +12,14 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @Component
-public class TopServlet extends HttpServlet {
+public class HotServlet extends HttpServlet {
 
     @Resource
     private String topUrl;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+
         String n = req.getParameter("n");
         if (n == null) {
             n = "20";

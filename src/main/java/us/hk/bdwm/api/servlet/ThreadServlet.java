@@ -3,7 +3,7 @@ package us.hk.bdwm.api.servlet;
 import org.springframework.stereotype.Component;
 import us.hk.bdwm.api.core.Thread;
 import us.hk.bdwm.api.core.Post;
-import us.hk.bdwm.api.util.HttpClientFactory;
+import us.hk.bdwm.api.util.Downloader;
 import us.hk.bdwm.api.util.Parser;
 
 import javax.annotation.Resource;
@@ -35,14 +35,13 @@ public class ThreadServlet extends HttpServlet {
 
         Thread thread = new Thread();
 
-        HttpClientFactory httpClientFactory = HttpClientFactory.get();
-        String body = httpClientFactory.download(url);
+        String body = Downloader.get(url);
 
         ArrayList<String> params = Parser.getPostUrls(body);
 
         for (String param : params) {
             String postUrl = postUrlPrefix + param;
-            String postBody = httpClientFactory.download(postUrl);
+            String postBody = Downloader.get(postUrl);
             Post post = Parser.getPost(postBody);
             thread.append(post);
         }

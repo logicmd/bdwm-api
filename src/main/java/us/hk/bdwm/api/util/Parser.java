@@ -21,7 +21,8 @@ public class Parser {
     }
 
     public static ArrayList<String> getPostUrls(String body) {
-        Pattern p = Pattern.compile("<th class=\"postNew\"><a href=\"bbspst\\.php\\?(.*?)\">回文章</a></th></tr>");
+        Pattern p = Pattern.compile(
+                "<th class=\"postNew\"><a href=\"bbspst\\.php\\?(.*?)\">回文章</a></th></tr>");
         Matcher m = p.matcher(body);
         ArrayList<String> urls = new ArrayList<String>();
 
@@ -36,9 +37,9 @@ public class Parser {
 
         Pattern p = Pattern.compile(
                 "<td><a href='bbsdoc.php?.*?'>.*?</a></td>.*?" +
-                        "<td><a href='bbstop.php?.*?'>(.*?)</a></td>.*?" +
-                        "<td><a href='bbsqry.php?.*?'>.*?</a></td>.*?" +
-                        "<td><a href='(bbstcon.php?.*?)'>(.*?)</a></td>",
+                "<td><a href='bbstop.php?.*?'>(.*?)</a></td>.*?" +
+                "<td><a href='bbsqry.php?.*?'>.*?</a></td>.*?" +
+                "<td><a href='(bbstcon.php?.*?)'>(.*?)</a></td>",
                 Pattern.DOTALL
         );
         Matcher m = p.matcher(body);
