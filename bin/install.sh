@@ -1,7 +1,7 @@
 #!/bin/bash
 
 SERVICE=bdwm-api
-INSTALL_DIR=~/install-bdwm-api
+INSTALL_DIR=../install-bdwm-api
 
 cd ../
 
