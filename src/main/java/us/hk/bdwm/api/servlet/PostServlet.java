@@ -2,8 +2,7 @@ package us.hk.bdwm.api.servlet;
 
 import org.springframework.stereotype.Component;
 import us.hk.bdwm.api.core.Post;
-import us.hk.bdwm.api.util.Downloader;
-import us.hk.bdwm.api.util.Parser;
+import us.hk.bdwm.api.util.*;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServlet;
@@ -31,12 +30,13 @@ public class PostServlet extends HttpServlet {
             dig = "0";
         }
 
-        String url = postUrlPrefix + "board=" + board + "&file=" + file + "&num=" + num + "&attach=" + attach + "&dig=" + dig;
+        String url = postUrlPrefix + "board=" + board + "&file=" + file
+                + "&num=" + num + "&attach=" + attach + "&dig=" + dig;
 
-        String body = Downloader.get(url);
+        String body = IOUtil.readUrl(url);//Downloader.get(url);
 
 
-        Post post = Parser.getPost(body);
+        Post post = new Post(body);
         resp.setContentType("application/json;charset=UTF-8");
         post.toJson(resp.getWriter());
     }

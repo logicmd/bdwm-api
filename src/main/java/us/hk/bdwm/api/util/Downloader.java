@@ -21,11 +21,14 @@ public class Downloader {
         HttpMethod method = new GetMethod(url);
         method.setRequestHeader("Content-Type", "text/html;encoding=gb18030");
 
+        String b = "";
+
         try {
             client.executeMethod(method);
 
             if (method.getStatusCode() == 200) {
                 StringBuffer temp = new StringBuffer();
+                b = method.getResponseBody().toString();
                 InputStream in = method.getResponseBodyAsStream();
                 BufferedReader buffer = new BufferedReader(new InputStreamReader(in, "gb18030"));
                 for (String tempStr; (tempStr = buffer.readLine()) != null; )
@@ -33,12 +36,13 @@ public class Downloader {
 
                 buffer.close();
                 in.close();
-                body = temp.toString().trim();
+                body = temp.toString();
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        return body;
+        //return body;
+        return b;
     }
 }

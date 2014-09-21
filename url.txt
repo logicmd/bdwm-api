@@ -1,3 +1,4 @@
 http://127.0.0.1:8080/post?board=HeNan&file=M.1408207891.A&num=7442&attach=0&dig=
 http://127.0.0.1:8080/thread?board=HeNan&threadid=13667281
 http://127.0.0.1:8080/top
+http://127.0.0.1:8080/post?board=Apple&file=M.1411201912.A&num=10337&attach=0&dig=0
